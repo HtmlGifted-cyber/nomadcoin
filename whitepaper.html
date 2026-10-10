@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nomad Coin 2.0 White Paper</title>
+  <meta name="description" content="Nomad Coin 2.0 white paper: the rebuild of the 2018 Wandering Coin on Bitcoin Core with HMQ1725 mining, a 210 million NMD fair launch and a path to Bitcoin swaps.">
+  <link rel="canonical" href="https://htmlgifted-cyber.github.io/nomadcoin/whitepaper.html">
+  <meta name="theme-color" content="#2b3640">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Nomad Coin home">
+        <img src="assets/img/favicon.png" width="38" height="38" alt="" style="border-radius:50%">
+        <span class="brand-name">Nomad Coin</span>
+      </a>
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#background">1.0 background</a></li>
+          <li><a href="#technical">Technical</a></li>
+          <li><a href="#supply">Supply</a></li>
+          <li><a href="#risks">Risks</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="nav-backdrop" hidden></div>
+
+  <main id="main" class="section">
+    <article class="container narrow prose">
+      <span class="badge">White paper · Version 2.0 draft · October 2026</span>
+      <h1>Nomad Coin 2.0</h1>
+      <p class="tagline">The Wandering Coin, rebuilt</p>
+
+      <h2 id="abstract">Abstract</h2>
+      <p>Nomad Coin 2.0 (NMD) is a fair-launch, CPU- and GPU-mineable cryptocurrency for digital nomads and the merchants who serve them, rebuilt on modern Bitcoin Core so it can be swapped directly for Bitcoin.</p>
+      <p>It keeps what defined the 2018 coin: the HMQ1725 mining algorithm, a 210 million coin cap, and the goal of giving people who live on the road a simple, transparent way to pay and get paid. It replaces the 2018 code, which no longer exists, with the current Bitcoin Core codebase, including SegWit, time-locked transactions and Taproot from the first block.</p>
+
+      <h2 id="background">Background: Nomad Coin 1.0 (2018)</h2>
+      <p>Nomad Coin launched on January 26, 2018, created by Jeremy A. Henry (BtcNomad). Its white paper set out the mission 2.0 inherits: let digital nomads pay merchants, and each other, in crypto with full transparency on a public ledger. It used HMQ1725 with proof of work plus proof of stake, a 210,000,000 NMD cap, and no ICO, and it was listed on Cryptohub.online and CoinExchange.io. Both exchanges later closed, and the source code and website went offline. 2.0 is therefore a new chain, not a continuation of the 1.0 ledger.</p>
+
+      <h2 id="why">Why 2.0</h2>
+      <ul>
+        <li><strong>Swappable for BTC.</strong> SegWit and time-locked transactions (CLTV/CSV) let NMD trade directly for Bitcoin through atomic swaps and decentralized exchanges.</li>
+        <li><strong>Exchange-ready.</strong> Exchanges and multi-coin wallets integrate Bitcoin Core forks with little custom work.</li>
+        <li><strong>Maintained security.</strong> It inherits more than a decade of Bitcoin Core review.</li>
+        <li><strong>Easy to mine.</strong> The wallet includes a one-click miner.</li>
+        <li><strong>Mining first.</strong> 2.0 launches as proof of work. Staking returns only if it can be added safely in a later upgrade.</li>
+      </ul>
+
+      <h2 id="technical">Technical specification</h2>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Parameter</th><th>Value</th></tr>
+          <tr><td>Codebase</td><td>Bitcoin Core 24.2 (MIT), rebranded</td></tr>
+          <tr><td>Proof of work</td><td>HMQ1725 over the 80-byte block header (block IDs stay SHA-256d)</td></tr>
+          <tr><td>Block time</td><td>2 minutes</td></tr>
+          <tr><td>Difficulty</td><td>LWMA-1, recalculated every block from the last 60 blocks</td></tr>
+          <tr><td>Reward</td><td>50 NMD, halving every 2,100,000 blocks (~8 years)</td></tr>
+          <tr><td>Max supply</td><td>210,000,000 NMD</td></tr>
+          <tr><td>Coinbase maturity</td><td>100 blocks</td></tr>
+          <tr><td>Addresses</td><td>N (legacy), M (script), nmd1 (SegWit / Taproot)</td></tr>
+          <tr><td>Soft forks</td><td>SegWit, CLTV, CSV, Taproot active from the start</td></tr>
+          <tr><td>Ports</td><td>P2P 17771, RPC 17772 (testnet 27771 / 27772)</td></tr>
+        </table>
+      </div>
+      <p>The genesis block carries the message <em>"Nomad Coin 2.0 09/Oct/2026 The Wandering Coin rides again"</em>.</p>
+
+      <h2 id="supply">Monetary policy and distribution</h2>
+      <p>Every NMD in 2.0 is created by mining: no premine, no presale, no team allocation. Half of all coins are mined in the first 8 years. In era 1, about 720 blocks a day create about 36,000 NMD a day. Community rewards such as faucets and airdrops come from coins the project mines or buys, publicly disclosed.</p>
+
+      <h2 id="bitcoin">Exchanging NMD for Bitcoin</h2>
+      <p>NMD reaches Bitcoin in three steps, each unlocking the next as the network grows: atomic swaps from launch, decentralized exchanges next, and centralized exchanges once the network has steady miners, always-on nodes, a public block explorer, a mining pool and real volume. No one can promise a price or a listing.</p>
+
+      <h2 id="users">Who it's for</h2>
+      <p>Full-time RVers, van-lifers and backpackers who sell crafts, repairs, guiding and online services to each other, and the campgrounds, mechanics, outfitters and online shops that serve them. Every payment is on a public ledger, the transparency 1.0 promised.</p>
+
+      <h2 id="risks">Risks and legal notice</h2>
+      <p>NMD may never be worth anything; mine it, hold it or spend it only with what you can afford to lose. A small network is easier to attack, software can contain bugs, mining costs electricity, and crypto rules change from country to country.</p>
+      <p class="notice">This paper is information, not an offer to sell anything and not investment, legal or tax advice. Nomad Coin 2.0 has no presale and no ICO, and the project makes no promise of profit. Before any coins are sold, listed or promoted with claims about value, the project will get advice from a qualified attorney.</p>
+
+      <p class="center" style="margin-top:32px"><a class="btn btn-primary" href="index.html">Back to Nomad Coin</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2018 - <span data-year>2026</span> Nomad Coin · Jeremy A. Henry (BtcNomad)</p>
+      <p class="muted">Information only, not an offer to sell anything and not financial advice.</p>
+    </div>
+  </footer>
+  <a class="to-top" href="#top" aria-label="Back to top" hidden>&uarr;</a>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

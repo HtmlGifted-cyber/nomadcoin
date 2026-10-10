@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nomad Coin (NMD) - The Wandering Coin</title>
+  <meta name="description" content="Nomad Coin (NMD) 2.0: a fair-launch, CPU-mineable cryptocurrency for digital nomads and the merchants who serve them, built on Bitcoin Core so it can be swapped for Bitcoin.">
+  <link rel="canonical" href="https://htmlgifted-cyber.github.io/nomadcoin/">
+  <meta name="theme-color" content="#2b3640">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nomad Coin (NMD) - The Wandering Coin">
+  <meta property="og:description" content="Fair launch. CPU mining. Built on Bitcoin Core. Made for people who live on the road.">
+  <meta property="og:url" content="https://htmlgifted-cyber.github.io/nomadcoin/">
+  <meta property="og:image" content="https://htmlgifted-cyber.github.io/nomadcoin/assets/img/nomad-coin-logo.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Nomad Coin, back to top">
+        <img src="assets/img/favicon.png" width="38" height="38" alt="" style="border-radius:50%">
+        <span class="brand-name">Nomad Coin</span>
+      </a>
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#specs">Specs</a></li>
+          <li><a href="#mining">Mining</a></li>
+          <li><a href="#bitcoin">Trade for BTC</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="whitepaper.html" class="nav-cta">White paper</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="nav-backdrop" hidden></div>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="badge">Testnet complete · Main network coming soon</span>
+          <h1>Nomad Coin</h1>
+          <p class="tagline">The Wandering Coin · NMD</p>
+          <p class="lead">A fair-launch cryptocurrency for digital nomads and the merchants who serve them. Mine it on an ordinary computer, keep it in your own wallet, and swap it for Bitcoin.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="whitepaper.html">Read the white paper</a>
+            <a class="btn btn-ghost" href="#roadmap">See the roadmap</a>
+          </div>
+          <ul class="quick-facts" aria-label="At a glance">
+            <li><strong>210M</strong> max supply</li>
+            <li><strong>0</strong> premine</li>
+            <li><strong>2 min</strong> blocks</li>
+          </ul>
+        </div>
+        <div class="hero-logo">
+          <img src="assets/img/nomad-coin-logo.png" width="256" height="256" alt="Nomad Coin logo: a metal coin stamped with the letter N">
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container narrow">
+        <h2 class="section-title">The Wandering Coin, rebuilt</h2>
+        <p>Nomad Coin first launched on January 26, 2018, created by Jeremy A. Henry (BtcNomad). Its mission was simple: give people who live on the road a way to pay and get paid, with every payment visible on a public ledger.</p>
+        <p>The 2018 network, its exchanges and its original code are gone, so Nomad Coin 2.0 is a clean rebuild on a new chain. It keeps what defined the original: the HMQ1725 mining algorithm, a 210 million coin cap, and the nomad mission. It rebuilds everything else on current Bitcoin Core, so NMD speaks Bitcoin's language.</p>
+        <div class="stat-grid">
+          <div class="stat"><strong>HMQ1725</strong><span>CPU & GPU mining</span></div>
+          <div class="stat"><strong>50 NMD</strong><span>per block</span></div>
+          <div class="stat"><strong>~8 years</strong><span>between halvings</span></div>
+          <div class="stat"><strong>Fair</strong><span>no premine, no presale</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="specs" class="section section-alt">
+      <div class="container narrow">
+        <h2 class="section-title">Specifications</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Parameter</th><th>Nomad Coin 2.0</th></tr>
+            <tr><td>Ticker</td><td>NMD</td></tr>
+            <tr><td>Codebase</td><td>Bitcoin Core 24.2 (MIT license), rebranded</td></tr>
+            <tr><td>Mining algorithm</td><td>HMQ1725 (17 hash functions, 25 rounds): CPU and GPU, ASIC-resistant</td></tr>
+            <tr><td>Consensus</td><td>Proof of work</td></tr>
+            <tr><td>Block time</td><td>2 minutes</td></tr>
+            <tr><td>Difficulty</td><td>Adjusts every block (LWMA, last 60 blocks)</td></tr>
+            <tr><td>Max supply</td><td>210,000,000 NMD</td></tr>
+            <tr><td>Block reward</td><td>50 NMD, halving every 2,100,000 blocks</td></tr>
+            <tr><td>Mined coins unlock after</td><td>100 blocks (about 3.3 hours)</td></tr>
+            <tr><td>Addresses</td><td><code>N…</code> legacy · <code>nmd1…</code> SegWit / Taproot</td></tr>
+            <tr><td>Active from block 1</td><td>SegWit, CLTV, CSV, Taproot</td></tr>
+            <tr><td>Premine</td><td>None (fair launch)</td></tr>
+          </table>
+        </div>
+
+        <h3 style="margin-top:32px">Supply schedule</h3>
+        <p class="muted">Every NMD is created by mining. Half of all coins are mined in the first 8 years, the same curve Bitcoin uses.</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Era</th><th>Years</th><th class="num">Reward</th><th class="num">Mined in era</th><th class="num">Total by end</th></tr>
+            <tr><td>1</td><td>0 to 8</td><td class="num">50 NMD</td><td class="num">105,000,000</td><td class="num">50%</td></tr>
+            <tr><td>2</td><td>8 to 16</td><td class="num">25 NMD</td><td class="num">52,500,000</td><td class="num">75%</td></tr>
+            <tr><td>3</td><td>16 to 24</td><td class="num">12.5 NMD</td><td class="num">26,250,000</td><td class="num">87.5%</td></tr>
+            <tr><td>4</td><td>24 to 32</td><td class="num">6.25 NMD</td><td class="num">13,125,000</td><td class="num">93.75%</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="mining" class="section">
+      <div class="container narrow">
+        <h2 class="section-title">Mining</h2>
+        <p>HMQ1725 runs well on the computers people already own, so no special mining chips are needed and home miners stay competitive.</p>
+        <div class="cards" style="grid-template-columns:1fr">
+          <article class="card card-featured">
+            <div class="card-tag">At launch</div>
+            <h3>Nomad Coin Wallet with built-in miner</h3>
+            <p>One download for Linux and Windows: wallet, network node and miner together. Pick how many CPU cores to use, press Start, and mined NMD lands in your own wallet. The Miner tab shows blocks found, coins earned, your hash rate and the network difficulty.</p>
+            <ul class="tech"><li>Linux</li><li>Windows</li><li>Multi-core</li></ul>
+          </article>
+        </div>
+        <p class="muted">Already mining other coins? Standard HMQ1725 miners such as cpuminer-opt work with a Nomad Coin node out of the box (tested on the testnet).</p>
+      </div>
+    </section>
+
+    <section id="bitcoin" class="section section-alt">
+      <div class="container narrow">
+        <h2 class="section-title">Trading NMD for Bitcoin</h2>
+        <p>Because Nomad Coin is built on Bitcoin Core with SegWit and time-locked transactions from the start, it can reach Bitcoin in three steps as the network grows.</p>
+        <ol class="steps">
+          <li><h3>Atomic swaps</h3><p>Two people trade NMD for BTC directly with matching time-locked contracts. Both payments complete or both refund, with no middleman.</p></li>
+          <li><h3>Decentralized exchanges</h3><p>Swap marketplaces that support Bitcoin Core-based coins can add an NMD/BTC market.</p></li>
+          <li><h3>Exchange listing</h3><p>With steady miners, always-on nodes, a public block explorer and real volume, NMD applies to exchanges that list community mining coins.</p></li>
+        </ol>
+        <p class="notice">No one can promise a price or a listing. Value comes from people mining, holding and spending NMD.</p>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="container narrow">
+        <h2 class="section-title">Roadmap</h2>
+        <ol class="timeline">
+          <li class="phase-done"><div class="when">Phase 1</div><h3>Build <span class="status done">Done</span></h3>
+            <ul><li>Bitcoin Core 24.2 fork with HMQ1725 proof of work</li><li>Per-block LWMA difficulty, Nomad Coin network rules</li></ul></li>
+          <li class="phase-done"><div class="when">Phase 2</div><h3>Testnet <span class="status done">Done</span></h3>
+            <ul><li>171 blocks mined; difficulty settled at ~2-minute blocks</li><li>Wallet, payments, restarts and multi-core mining all verified</li></ul></li>
+          <li class="phase-now"><div class="when">Phase 3</div><h3>Main network launch <span class="status next">Next</span></h3>
+            <ul><li>A 24/7 public node so anyone can connect from anywhere</li><li>Fair launch: block 1 mined in public, no premine</li><li>Public block explorer</li></ul></li>
+          <li><div class="when">Phase 4</div><h3>Grow the network <span class="status later">Planned</span></h3>
+            <ul><li>Wallet and miner downloads for Linux and Windows</li><li>Mining pool, faucet and community rewards</li></ul></li>
+          <li><div class="when">Phase 5</div><h3>Bitcoin swaps <span class="status later">Planned</span></h3>
+            <ul><li>Atomic swaps and a decentralized NMD/BTC market</li></ul></li>
+          <li><div class="when">Phase 6</div><h3>Exchange listing <span class="status later">Planned</span></h3>
+            <ul><li>Legal review first, then an NMD/BTC exchange listing and merchant payment tools</li></ul></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-alt">
+      <div class="container narrow">
+        <h2 class="section-title">FAQ</h2>
+        <details><summary>Is this the same coin as Nomad Coin 2018?</summary><p>Same name, mission, algorithm and supply cap, on a brand-new chain. The 2018 network and its ledger no longer exist, so 1.0 coins do not carry over.</p></details>
+        <details><summary>Can I buy NMD?</summary><p>Not yet, and there is no presale or ICO. NMD will only come from mining when the main network launches.</p></details>
+        <details><summary>What do I need to mine?</summary><p>An ordinary Linux or Windows computer and an internet connection. The wallet download will include the miner.</p></details>
+        <details><summary>When does the main network launch?</summary><p>Once the 24/7 public node is running, so anyone can connect from anywhere. Follow this page for the date.</p></details>
+        <details><summary>Who is behind Nomad Coin?</summary><p>Jeremy A. Henry (BtcNomad): author, ordained minister, and Linux & network tech who lives the nomad life. <a href="https://htmlgifted-cyber.github.io" target="_blank" rel="noopener">Resume</a> · <a href="https://www.jeremyahenry.com" target="_blank" rel="noopener">jeremyahenry.com</a></p></details>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow center">
+        <h2 class="section-title">Follow the journey</h2>
+        <div class="hero-actions center">
+          <a class="btn btn-primary" href="whitepaper.html">White paper</a>
+          <a class="btn btn-ghost" href="https://github.com/HtmlGifted-cyber" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost" href="https://www.jeremyahenry.com" target="_blank" rel="noopener">jeremyahenry.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2018 - <span data-year>2026</span> Nomad Coin · Jeremy A. Henry (BtcNomad)</p>
+      <p class="muted">Information only, not an offer to sell anything and not financial advice. No presale, no ICO.</p>
+    </div>
+  </footer>
+
+  <a class="to-top" href="#top" aria-label="Back to top" hidden>&uarr;</a>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
