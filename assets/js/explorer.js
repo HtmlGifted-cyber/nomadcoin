@@ -7,9 +7,9 @@
   "use strict";
 
   var SOURCE = {
-    base: "data",                         // live: "https://<node-domain>/rest"
-    label: "Testnet demo · snapshot of the Nomad Coin testnet (October 9, 2026)",
-    live: false
+    base: "data",                         // refreshed from the always-on node (tools/nomad-explorer-export.py)
+    label: "Main network · updated from the always-on node",
+    live: true
   };
   var HALVING = 2100000, REWARD = 50, TARGET_SPACING = 120;
   var view = document.getElementById("view");
