@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nomad Coin Explorer - blocks and transactions</title>
+  <meta name="description" content="Nomad Coin (NMD) block explorer: latest blocks, transactions, difficulty and supply.">
+  <link rel="canonical" href="https://htmlgifted-cyber.github.io/nomadcoin/explorer.html">
+  <meta name="theme-color" content="#2b3640">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Nomad Coin home">
+        <img src="assets/img/favicon.png" width="38" height="38" alt="" style="border-radius:50%">
+        <span class="brand-name">Nomad Coin</span>
+      </a>
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="explorer.html#/">Latest blocks</a></li>
+          <li><a href="whitepaper.html">White paper</a></li>
+          <li><a href="index.html#roadmap" class="nav-cta">Roadmap</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="nav-backdrop" hidden></div>
+
+  <main id="main" class="section">
+    <div class="container">
+      <span class="badge" id="source-badge">Loading...</span>
+      <h1 style="font-size:clamp(1.8rem,5vw,2.4rem)">Block explorer</h1>
+
+      <form class="explorer-search" id="search" role="search">
+        <label for="q" class="sr-only">Search</label>
+        <input id="q" type="search" placeholder="Block height, block hash or transaction ID" autocomplete="off" spellcheck="false">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+
+      <div id="view" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2018 - <span data-year>2026</span> Nomad Coin · Jeremy A. Henry (BtcNomad)</p>
+      <p class="muted">Data comes straight from a Nomad Coin node.</p>
+    </div>
+  </footer>
+  <a class="to-top" href="#top" aria-label="Back to top" hidden>&uarr;</a>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/explorer.js" defer></script>
+</body>
+</html>

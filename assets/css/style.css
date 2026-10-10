@@ -245,3 +245,9 @@ details p { margin: .7em 0 0; color: var(--muted); }
 .notice { background: var(--bg-alt); border-left: 4px solid var(--amber); border-radius: 8px; padding: 14px 16px; color: var(--muted); font-size: .92rem; }
 .prose h2 { font-size: 1.5rem; margin-top: 1.6em; }
 .prose h3 { margin-top: 1.2em; }
+/* ---------- Explorer ---------- */
+.explorer-search { display: flex; gap: 8px; margin: 8px 0 24px; flex-wrap: wrap; }
+.explorer-search input { flex: 1 1 260px; min-height: 46px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 999px; font: 1rem var(--font); background: var(--card); }
+.explorer-search input:focus { outline: 3px solid var(--gold); outline-offset: 1px; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88rem; word-break: break-all; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
