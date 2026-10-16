@@ -1,0 +1,8 @@
+{
+  "about": "Nomad Coin seed list. The wallet reads this at startup to find its first peers; after that, nodes share addresses with each other.",
+  "updated": "2026-10-16",
+  "main": [
+    "home.jeremyahenry.com:17771"
+  ],
+  "test": []
+}
