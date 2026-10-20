@@ -7,6 +7,9 @@ block/<hash>.json and tx/<txid>.json. It publishes public blockchain data only -
 no IP addresses or other network details. The seed list (seeds.json) is edited
 by hand by the node owner.
 
+After a rollback (tip went down, or a block below the tip was replaced) the exporter re-exports from the
+lowest changed height and then removes its own files that are no longer on the main chain.
+
 Settings (environment variables):
   NMD_SITE      path of the site repo clone       (default ~/nomadcoin-site)
   NMD_DATADIR   node data folder                  (default ~/.nomadcoin)
@@ -127,17 +130,92 @@ def blocks(start, tip):
         yield h, bh, rpc("getblock", bh, 2)
 
 
+def stored_hashes():
+    """{height: blockhash} from the blockhashbyheight files this exporter wrote."""
+    d = os.path.join(OUT, "blockhashbyheight")
+    out = {}
+    for f in (os.listdir(d) if os.path.isdir(d) else []):
+        if f.endswith(".json") and f[:-5].isdigit():
+            with open(os.path.join(d, f)) as fh:
+                out[int(f[:-5])] = json.load(fh)["blockhash"]
+    return out
+
+
+def node_hashes(heights):
+    """The node's current main-chain hash for each height. ssh mode: one ssh session per 500 heights."""
+    if MODE != "ssh":
+        return {h: rpc("getblockhash", h) for h in heights}
+    out = {}
+    for i in range(0, len(heights), 500):
+        chunk = heights[i:i + 500]
+        script = "".join(f"nomadcoin-cli getblockhash {h} || exit 1\n" for h in chunk)
+        lines = [ln.strip() for ln in hub("sh -s", script=script).splitlines() if ln.strip()]
+        if len(lines) != len(chunk):
+            raise RuntimeError(f"hub returned {len(lines)} hashes for {len(chunk)} heights")
+        out.update(zip(chunk, lines))
+    return out
+
+
 def export():
     info = rpc("getblockchaininfo")
-    write("chaininfo.json", info)
     tip = info["blocks"]
-    for h, bh, block in blocks(start_height(tip), tip):
+    # Reorg below the tip: a stored height whose hash no longer matches the node is re-exported,
+    # starting from the lowest such height.
+    stored = stored_hashes()
+    check = sorted(h for h in stored if h <= tip)
+    now = node_hashes(check)
+    bad = [h for h in check if stored[h] != now[h]]
+    start = start_height(tip)
+    if bad:
+        start = min(start, bad[0])
+        print(f"reorg: {len(bad)} stored height(s) changed, lowest {bad[0]}; re-exporting from {start}")
+    write("chaininfo.json", info)
+    for h, bh, block in blocks(start, tip):
         write(f"blockhashbyheight/{h}.json", {"blockhash": bh})
         write(f"block/{bh}.json", block)
         for tx in block["tx"]:
             write(f"tx/{tx['txid']}.json",
                   dict(tx, blockhash=bh, confirmations=block["confirmations"], time=block["time"], blocktime=block["time"]))
     return tip
+
+
+def drop(rel, removed):
+    os.remove(os.path.join(OUT, rel))
+    removed.append(rel)
+
+
+def prune(tip):
+    """Delete this exporter's files that are no longer on the main chain: blockhashbyheight files above the
+    tip, block/<hash>.json for blocks above the tip or whose hash differs from the stored hash at their
+    height, and tx/<txid>.json pointing at one of those blocks. Returns the removed paths."""
+    removed = []
+    main = {}
+    for h, bh in stored_hashes().items():
+        if h > tip:
+            drop(f"blockhashbyheight/{h}.json", removed)
+        else:
+            main[h] = bh
+    orphan = set()
+    bdir = os.path.join(OUT, "block")
+    for f in (os.listdir(bdir) if os.path.isdir(bdir) else []):
+        if not f.endswith(".json"):
+            continue
+        bh = f[:-5]
+        with open(os.path.join(bdir, f)) as fh:
+            h = json.load(fh).get("height")
+        if h is None or (h <= tip and main.get(h, bh) == bh):
+            continue
+        orphan.add(bh)
+        drop(f"block/{f}", removed)
+    if orphan:
+        tdir = os.path.join(OUT, "tx")
+        for f in (os.listdir(tdir) if os.path.isdir(tdir) else []):
+            if not f.endswith(".json"):
+                continue
+            with open(os.path.join(tdir, f)) as fh:
+                if json.load(fh).get("blockhash") in orphan:
+                    drop(f"tx/{f}", removed)
+    return removed
 
 
 def push(tip):
@@ -153,4 +231,8 @@ def push(tip):
 
 if __name__ == "__main__":
     tip = export()
+    removed = prune(tip)
+    for rel in removed:
+        print(f"removed {rel}")
+    print(f"removed {len(removed)} stale file(s)")
     print(f"exported up to block {tip}", push(tip) if PUSH else "(not pushed)")
