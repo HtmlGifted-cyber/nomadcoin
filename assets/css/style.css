@@ -239,6 +239,16 @@ td.num, th.num { text-align: right; white-space: nowrap; }
 .steps li::before { content: counter(step); position: absolute; left: 16px; top: 16px; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--green-900); color: var(--gold); font-weight: 700; }
 .steps h3 { margin-bottom: .25em; }
 .steps p { margin: 0; color: var(--muted); }
+
+/* ---------- Wallet setup device buttons ---------- */
+.device-buttons { display: grid; gap: 12px; margin: 20px 0; }
+@media (min-width: 640px) { .device-buttons { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .device-buttons { grid-template-columns: repeat(4, 1fr); } }
+.device-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 18px 12px; background: var(--card); border: 2px solid var(--line); border-radius: var(--radius); text-decoration: none; color: var(--green-900); font-weight: 600; font-size: .95rem; transition: border-color .2s, background-color .2s, transform .2s; }
+.device-btn:hover { border-color: var(--gold); background: var(--bg-alt); transform: translateY(-2px); text-decoration: none; color: var(--green-900); }
+.device-btn .device-icon { font-size: 1.5rem; }
+.device-btn .device-name { line-height: 1.3; }
+@media (min-width: 640px) { .device-btn { font-size: 1.05rem; } .device-btn .device-icon { font-size: 1.8rem; } }
 details { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px; }
 details summary { cursor: pointer; font-weight: 600; color: var(--green-900); }
 details p { margin: .7em 0 0; color: var(--muted); }
